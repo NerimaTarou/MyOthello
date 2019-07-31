@@ -17,6 +17,8 @@ public class Main
          */
         Field field = new Field();
         int board[][] = field.createField();
+        // test用盤面
+        // int board[][] = field.createPlayedField();
         field.showField(board);
         field.showBoard(board);
         StoneMove stoneMove = new StoneMove();
@@ -118,6 +120,10 @@ public class Main
             }
         }
         System.out.println("Finish");
+        judgeMan.checkWinner(board);
+        System.out.println("");
+        System.out.println("");
+        System.out.println("THANK YOU FOR PLAYING!!");
     }
 
 }

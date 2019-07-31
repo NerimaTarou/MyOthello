@@ -68,7 +68,7 @@ public class StoneMove
         long count = 0;
         Stream<String> stream = Stream.of(strArray);
         count = stream.filter(c -> c.matches("^[1-8]+$")).count();
-        boolean result = (count > 0) ? true : false;
+        boolean result = (count == 2) ? true : false;
         return result;
     }
 

@@ -19,7 +19,7 @@ public class JudgeMan
      * 
      * @param field 盤面
      * @param StoneType stoneType 石の種類
-     * @return true:白黒両方orどちらか置けるところがある/false:置けるところがない
+     * @return true:白黒両方orどちらか置けるところがある/false:両社置けるところがない
      */
     public boolean hasFinishedGame(int[][] field, StoneType stoneType1, StoneType stoneType2) {
         int a = nextCanPutNum(field, stoneType1);
@@ -46,16 +46,17 @@ public class JudgeMan
 
         for (int vertical = 0; vertical < 8; vertical++) {
             for (int side = 0; side < 8; side++) {
-                // 石がすでにあるかどうか
+                // 石がすでにあるかどうか(true:石がないので置ける場所/false:石があるので置けない場所)
                 boolean existsStone = checkAround.checkExistence(vertical, side, field);
                 int nowStoneNum = field[vertical][side];
                 int count = checkAround.countSpace(field, vertical, side, stoneType);
                 // inputを変換するメソッドを使っているのでvertical等は1を足す
                 String input = String.valueOf(vertical + 1) + String.valueOf(side + 1);
-                int a = reversi.isTurnOver(field, input, stoneType);
+                // checkが1以上ならひっくり返せるということ
+                int check = reversi.isTurnOver(field, input, stoneType);
                 // reversi.isTurnOverを通った時点で石の色が変わってしまうので再度上書き
                 field[vertical][side] = nowStoneNum;
-                if (count >= 1 && a > 0 && existsStone) {
+                if (count >= 1 && check > 0 && existsStone) {
                     freeSpace++;
                 }
             }

@@ -41,7 +41,7 @@ public class Reversi
             }
         }
         // side+count+1<7 盤の端に余白がきちんとあるか確認
-        if (count > 0 && side + count + 1 < 7 && field[vertical][side + count + 1] != 0) {
+        if (count > 0 && side + count + 1 <= 7 && field[vertical][side + count + 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
                 field[vertical][side + j] = stoneNumber;
@@ -77,7 +77,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && side + count + 1 < 7 && field[vertical][side + count + 1] != 0) {
+        if (count > 0 && side + count + 1 <= 7 && field[vertical][side + count + 1] != 0) {
             check = 1;
         }
         return check;
@@ -108,7 +108,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && side - count - 1 > 0 && field[vertical][side - count - 1] != 0) {
+        if (count > 0 && side - count - 1 >= 0 && field[vertical][side - count - 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
                 field[vertical][side - j] = stoneNumber;
@@ -144,7 +144,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && side - count - 1 > 0 && field[vertical][side - count - 1] != 0) {
+        if (count > 0 && side - count - 1 >= 0 && field[vertical][side - count - 1] != 0) {
             check = 1;
         }
         return check;
@@ -176,7 +176,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && field[vertical - count - 1][side] != 0) {
+        if (count > 0 && vertical - count - 1 >= 0 && field[vertical - count - 1][side] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
                 field[vertical - j][side] = stoneNumber;
@@ -200,7 +200,6 @@ public class Reversi
         List<Integer> numbers = stoneMove.convertNum(input);
         int vertical = numbers.get(0);
         int side = numbers.get(1);
-
         int check = 0;
         int count = 0;
         int stoneNumber = checkAround.checkStoneType(stoneType);
@@ -213,7 +212,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && field[vertical - count - 1][side] != 0) {
+        if (count > 0 && vertical - count - 1 >= 0 && field[vertical - count - 1][side] != 0) {
             check = 1;
         }
         return check;
@@ -245,7 +244,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && field[vertical + count + 1][side] != 0) {
+        if (count > 0 && vertical + count + 1 <= 7 && field[vertical + count + 1][side] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
                 field[vertical + j][side] = stoneNumber;
@@ -281,7 +280,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && field[vertical + count + 1][side] != 0) {
+        if (count > 0 && vertical + count + 1 <= 7 && field[vertical + count + 1][side] != 0) {
             check = 1;
         }
         return check;
@@ -313,7 +312,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && side + count + 1 < 7
+        if (count > 0 && vertical - count - 1 >= 0 && side + count + 1 <= 7
             && field[vertical - count - 1][side + count + 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
@@ -350,7 +349,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && side + count + 1 < 7
+        if (count > 0 && vertical - count - 1 >= 0 && side + count + 1 <= 7
             && field[vertical - count - 1][side + count + 1] != 0) {
             check = 1;
         }
@@ -382,7 +381,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && side + count + 1 < 7
+        if (count > 0 && vertical + count + 1 <= 7 && side + count + 1 <= 7
             && field[vertical + count + 1][side + count + 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
@@ -419,7 +418,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && side + count + 1 < 7
+        if (count > 0 && vertical + count + 1 <= 7 && side + count + 1 <= 7
             && field[vertical + count + 1][side + count + 1] != 0) {
             check = 1;
         }
@@ -451,7 +450,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && side - count - 1 > 0
+        if (count > 0 && vertical - count - 1 >= 0 && side - count - 1 >= 0
             && field[vertical - count - 1][side - count - 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
@@ -488,7 +487,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical - count - 1 > 0 && side - count - 1 > 0
+        if (count > 0 && vertical - count - 1 >= 0 && side - count - 1 >= 0
             && field[vertical - count - 1][side - count - 1] != 0) {
             check = 1;
         }
@@ -520,7 +519,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && side - count - 1 > 0
+        if (count > 0 && vertical + count + 1 <= 7 && side - count - 1 >= 0
             && field[vertical + count + 1][side - count - 1] != 0) {
             field[vertical][side] = stoneNumber;
             for (int j = 1; j <= count; j++) {
@@ -557,7 +556,7 @@ public class Reversi
                 break;
             }
         }
-        if (count > 0 && vertical + count + 1 < 7 && side - count - 1 > 0
+        if (count > 0 && vertical + count + 1 <= 7 && side - count - 1 >= 0
             && field[vertical + count + 1][side - count - 1] != 0) {
             check = 1;
         }
@@ -588,6 +587,7 @@ public class Reversi
 
     /**
      * ひっくり返すメソッドチェックの統合
+     * checkが1以上ならひっくり返すことができる場所であるといえる
      * 
      * @param field 盤面
      * @param a 盤面の縦列
